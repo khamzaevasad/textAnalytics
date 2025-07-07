@@ -33,7 +33,11 @@
         </div>
         <div class="theme-container">
           <img src="../assets/dark.png" alt="dark" class="dark-mode_icon" />
-          <img src="../assets/light.png" alt="light" class="light-mode_icon" />
+          <img
+            src="../assets/lightModeIcon.svg"
+            alt="light"
+            class="light-mode_icon"
+          />
         </div>
       </nav>
     </header>
@@ -57,37 +61,54 @@
             placeholder="Start typing here...(or paste your text)"
           ></textarea>
           <!-- text filter -->
-          <div class="container text-filter">
-            <div class="text-left">
-              <div class="form-check form-check-inline">
-                <input
-                  class="form-check-input to-block"
-                  type="checkbox"
-                  id="excludeSpaces"
-                />
-                <label
-                  class="form-check-label text-white mini-title"
-                  for="excludeSpaces"
-                >
-                  Exclude Spaces
-                </label>
+          <div class="container">
+            <!-- Warning message -->
+            <div class="display-none">
+              <div class="warning-container">
+                <img src="../assets/info-circle.svg" alt="info" />
+                <p>limit reached! Your text exceedes 300 characters</p>
+              </div>
+            </div>
+
+            <!-- Text filter -->
+            <div class="text-filter">
+              <div class="checkbox-wrapper">
                 <div class="form-check form-check-inline">
                   <input
-                    class="form-check-input to-block"
+                    class="form-check-input"
                     type="checkbox"
-                    id="excludeSpaces"
+                    id="excludeSpaces1"
                   />
                   <label
                     class="form-check-label text-white mini-title"
-                    for="excludeSpaces"
+                    for="excludeSpaces1"
                   >
                     Exclude Spaces
                   </label>
                 </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="excludeSpaces2"
+                  />
+                  <label
+                    class="form-check-label text-white mini-title"
+                    for="excludeSpaces2"
+                  >
+                    Exclude Spaces
+                  </label>
+                </div>
+                <input
+                  type="number"
+                  class="input-style display-none"
+                  value="300"
+                />
               </div>
-            </div>
-            <div>
-              <p class="mini-title">Approx.reading time: < 1minute</p>
+
+              <div>
+                <p class="mini-title">Approx.reading time: &lt; 1 minute</p>
+              </div>
             </div>
           </div>
         </div>
@@ -108,6 +129,76 @@
             <h3 class="static-heading">04</h3>
             <p class="static-paragraph">Sentence Count</p>
           </div>
+        </div>
+      </section>
+
+      <!-- Letter section -->
+      <section>
+        <!-- Heading -->
+        <div class="container letter-container_wrapper">
+          <div class="letter-heading">
+            <h3>Letter Density</h3>
+            <p class="mini-title display-none">
+              No characters found. Start typing to see letter density
+            </p>
+          </div>
+          <!-- progress -->
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">E</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">T</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">B</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">E</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">T</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+          <div class="progress-container">
+            <div>
+              <p class="progress-title">B</p>
+              <div class="progress-box">
+                <div class="progress-line"></div>
+              </div>
+              <p class="progress-title">40(16.06%)</p>
+            </div>
+          </div>
+
+          <p class="btn-see">See More ▼</p>
         </div>
       </section>
     </section>
