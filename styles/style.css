@@ -10,13 +10,79 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
-body.dark-mode {
-  background-color: #12131a;
-  background-image: url("../assets/Bg_image.png");
+:root {
+  /* Neutral */
+  --primary-color: #ffffff;
+  --secondary-color: #f2f2f7;
+  --tertiary-color: #e4e4ef;
+  --text-color: #12131a;
+  --heading-color: #12131a;
+
+  /* Accent colors */
+  --accent-purple: #c27cf8;
+  --accent-purple-light: #d3a0fa;
+  --accent-orange: #ff9f00;
+  --accent-red: #fe8159;
+  --accent-red-dark: #fe8159;
+
+  /* Gray / Border */
+  --light-gray: #e4e4ef;
+  --gray: #f2f2f7;
+
+  /* Text */
+  --text-white: #ffffff;
+  --text-black: #12131a;
+}
+
+.dark-mode-logo {
+  display: none;
+}
+
+body.dark-mode .light-mode-logo {
+  display: none;
+}
+body.dark-mode .dark-mode-logo {
+  display: inline;
+}
+
+body.light-mode {
+  background-color: var(--primary-color);
+  background-image: url("../assets/bg-light-theme.png");
   background-size: cover;
   background-position: center;
 }
 
+body.dark-mode {
+  --primary-color: #12131a;
+  --secondary-color: #21222c;
+  --tertiary-color: #2a2b37;
+  --text-color: #ffffff;
+  --heading-color: #ffffff;
+
+  /* Accent colors */
+  --accent-purple: #c27cf8;
+  --accent-purple-light: #d3a0fa;
+  --accent-orange: #ff9f00;
+  --accent-red: #fe8159;
+  --accent-red-dark: #fe8159;
+
+  /* Gray / Border */
+  --light-gray: #404254;
+  --gray: #21222c;
+
+  /* Text */
+  --text-white: #ffffff;
+  --text-black: #12131a;
+  background-color: var(--primary-color);
+  background-image: url("../assets/bg-dark-theme.png");
+  background-size: cover;
+  background-position: center;
+}
+
+/* hidden */
+.display-none {
+  display: none;
+}
 /* nav */
 .nav-menu {
   display: flex;
@@ -28,7 +94,7 @@ body.dark-mode {
   display: flex;
   width: 40px;
   height: 40px;
-  background-color: #21222c;
+  background-color: var(--secondary-color);
   border-radius: 4px;
   align-items: center;
   justify-content: center;
@@ -37,13 +103,6 @@ body.dark-mode {
 div img {
   cursor: pointer;
 }
-
-.light-mode_logo,
-.dark-mode_icon {
-  display: none;
-}
-
-/* nav */
 
 /* main-content wrapper */
 .main-content-wrapper {
@@ -63,7 +122,7 @@ div img {
 .main-title h2 {
   margin: 3.1rem auto;
   text-align: center;
-  color: #fff;
+  color: var(--heading-color);
   font-size: 4.3rem;
   font-weight: bold;
 }
@@ -83,11 +142,11 @@ div img {
 }
 
 textarea::placeholder {
-  color: #fff;
+  color: var(--text-color);
 }
 
 textarea:focus {
-  outline: 2px solid #c27cf8;
+  outline: 2px solid var(--accent-purple-light);
 }
 
 .main-container_box textarea {
@@ -97,14 +156,11 @@ textarea:focus {
   font-size: 1rem;
   border-radius: 10px;
   border: none;
-  color: #fff;
-  background-color: #21222c;
+  color: var(--text-color);
+  background-color: var(--tertiary-color);
 }
 
 /* warning-container */
-.display-none {
-  display: none;
-}
 
 .warning-container {
   display: flex;
@@ -113,7 +169,7 @@ textarea:focus {
 }
 
 .warning-container p {
-  color: #fe8159;
+  color: var(--accent-red);
   font-size: 0.7rem;
   line-height: 130%;
   font-weight: 200;
@@ -143,19 +199,19 @@ textarea:focus {
 
 .mini-title {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-color);
   line-height: 130%;
   font-weight: 200;
 }
 
 .form-check-input {
   margin-right: 10px;
-  background-color: #21222c !important;
+  background-color: var(--secondary-color) !important;
 }
 
 .form-check-input:checked {
-  background-color: #d3a0fb !important;
-  border-color: #d3a0fb !important;
+  background-color: var(--accent-purple) !important;
+  border-color: var(--accent-purple) !important;
 }
 
 .form-check-input:focus {
@@ -164,11 +220,11 @@ textarea:focus {
 .input-style {
   width: 60px;
   height: 25px;
-  background-color: #21222c;
+  background-color: var(--secondary-color);
   font-size: 0.7rem;
   text-align: center;
-  color: #fff;
-  border: 1px solid #414254; /* yumshoq kulrang */
+  color: var(--text-white);
+  border: 1px solid var(--light-gray);
   border-radius: 6px;
   font-weight: 300;
   padding: 0.25rem 0.5rem;
@@ -184,7 +240,7 @@ input[type="number"]::-webkit-outer-spin-button {
   padding: 1rem;
   padding-bottom: 1rem;
   border-radius: 16px;
-  border: 1px solid white;
+  border: 1px solid var(--white);
   margin: 2.5rem auto;
   border: none;
 }
@@ -193,7 +249,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 2.5rem;
   line-height: 100%;
   font-weight: bold;
-  color: #12131a;
+  color: var(--text-black);
 }
 
 .static-paragraph {
@@ -201,30 +257,30 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 1rem;
   line-height: 130%;
   font-weight: 300;
-  color: #12131a;
+  color: var(--text-black);
 }
 .box-1 {
-  background-image: url("../assets/Shape-01.svg");
-  background-size: 100px auto;
+  background-image: url("../assets/pattern-character-count.svg");
+  background-size: 130px auto;
   background-repeat: no-repeat;
   background-position: right center;
-  background-color: #c27cf8;
+  background-color: var(--accent-purple);
 }
 
 .box-2 {
-  background-image: url("../assets/Shape-02.svg");
-  background-size: 100px auto;
+  background-image: url("../assets/pattern-word-count.svg");
+  background-size: 130px auto;
   background-repeat: no-repeat;
   background-position: right center;
-  background-color: #ff9f00;
+  background-color: var(--accent-orange);
 }
 
 .box-3 {
-  background-image: url("../assets/Shape-03.svg");
-  background-size: 100px auto;
+  background-image: url("../assets/pattern-sentence-count.svg");
+  background-size: 130px auto;
   background-repeat: no-repeat;
   background-position: right center;
-  background-color: #fe8159;
+  background-color: var(--accent-red);
 }
 
 /* Letter section */
@@ -235,7 +291,7 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .letter-heading {
-  color: #fff;
+  color: var(--heading-color);
   font-size: 1.5rem;
   line-height: 130%;
   font-weight: 200;
@@ -263,20 +319,20 @@ input[type="number"]::-webkit-outer-spin-button {
   max-width: 850px;
   margin-right: auto;
   margin-left: auto;
-  background-color: #21222c;
+  background-color: var(--secondary-color);
   height: 10px;
   border-radius: 30px;
 }
 
 .progress-line {
   width: 40%;
-  background-color: #c27cf8;
+  background-color: var(--accent-purple);
   height: inherit;
   border-radius: inherit;
 }
 
 .progress-title {
-  color: #fff;
+  color: var(--text-color);
   line-height: 130%;
   font-weight: 200;
   font-size: 1rem;
@@ -286,7 +342,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .btn-see {
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-color);
   line-height: 130%;
   font-weight: 200;
   margin-top: 1.25rem;
