@@ -5,9 +5,6 @@ inputArea.addEventListener("input", () => {
 
   const inputValue = inputArea.value;
 
-  totalCharacter();
-  console.log(letterCounter);
-
   const letterList = inputValue.split("").forEach((letter) => {
     if (lettersCollection[letter.toLowerCase()]) {
       lettersCollection[letter.toLowerCase()] += 1;
