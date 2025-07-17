@@ -1,25 +1,30 @@
-const inputArea = document.getElementById("textArea");
+const textArea = document.getElementById("textArea");
 
-inputArea.addEventListener("input", () => {
-  lettersCollection = {};
+textArea.addEventListener("input", () => {
+  const letterCollection = {};
 
-  const inputValue = inputArea.value;
+  const inputValue = textArea.value;
+  const letterList = inputValue
+    .split("")
+    .filter((letter) => letter.trim() !== "");
 
-  const letterList = inputValue.split("").forEach((letter) => {
-    if (lettersCollection[letter.toLowerCase()]) {
-      lettersCollection[letter.toLowerCase()] += 1;
+  letterList.forEach((letter) => {
+    const lowerLetter = letter.toLowerCase();
+
+    if (letterCollection[lowerLetter]) {
+      letterCollection[lowerLetter] += 1;
     } else {
-      lettersCollection[letter.toLowerCase()] = 1;
-    }
-    console.clear();
-    console.log(lettersCollection);
-
-    for (let i in lettersCollection) {
-      console.log(
-        i,
-        lettersCollection[i],
-        `${Math.round((lettersCollection[i] / inputValue.length) * 100)}%`
-      );
+      letterCollection[lowerLetter] = 1;
     }
   });
+  console.clear();
+  console.log(letterCollection);
+
+  for (let i in letterCollection) {
+    console.log(
+      i,
+      letterCollection[i],
+      `${Math.round((letterCollection[i] / letterList.length) * 100)}%`
+    );
+  }
 });
