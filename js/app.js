@@ -1,15 +1,19 @@
 const textArea = document.getElementById("textArea");
+const totalCharacter = document.getElementById("total-character");
 
 textArea.addEventListener("input", () => {
   const letterCollection = {};
+  const characterList = [];
 
   const inputValue = textArea.value;
   const letterList = inputValue
     .split("")
     .filter((letter) => letter.trim() !== "");
 
-  letterList.forEach((letter) => {
+  letterList.forEach((letter, index) => {
     const lowerLetter = letter.toLowerCase();
+    const allLetters = index + 1;
+    characterList.push(allLetters);
 
     if (letterCollection[lowerLetter]) {
       letterCollection[lowerLetter] += 1;
@@ -19,6 +23,7 @@ textArea.addEventListener("input", () => {
   });
   console.clear();
   console.log(letterCollection);
+  console.log("characterList", characterList);
 
   for (let i in letterCollection) {
     console.log(
@@ -27,4 +32,6 @@ textArea.addEventListener("input", () => {
       `${Math.round((letterCollection[i] / letterList.length) * 100)}%`
     );
   }
+  console.log("Total characters", characterList.length);
+  totalCharacter.textContent = characterList.length;
 });
