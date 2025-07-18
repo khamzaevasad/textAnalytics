@@ -1,37 +1,18 @@
-const textArea = document.getElementById("textArea");
-const totalCharacter = document.getElementById("total-character");
+const textAreaEl = document.getElementById("textArea");
+const totalCharEl = document.getElementById("total-character");
+const wordsCountEl = document.getElementById("words-count");
 
-textArea.addEventListener("input", () => {
-  const letterCollection = {};
-  const characterList = [];
+function textAnalyze() {
+  // total character
+  const totalChar = textAreaEl.value;
+  totalCharEl.textContent = totalChar.length;
 
-  const inputValue = textArea.value;
-  const letterList = inputValue
-    .split("")
-    .filter((letter) => letter.trim() !== "");
-
-  letterList.forEach((letter, index) => {
-    const lowerLetter = letter.toLowerCase();
-    const allLetters = index + 1;
-    characterList.push(allLetters);
-
-    if (letterCollection[lowerLetter]) {
-      letterCollection[lowerLetter] += 1;
-    } else {
-      letterCollection[lowerLetter] = 1;
-    }
-  });
-  console.clear();
-  console.log(letterCollection);
-  console.log("characterList", characterList);
-
-  for (let i in letterCollection) {
-    console.log(
-      i,
-      letterCollection[i],
-      `${Math.round((letterCollection[i] / letterList.length) * 100)}%`
-    );
+  // word count
+  const wordCount = totalChar.split(" ").length;
+  if (totalChar === 0) {
+    wordCount = 0;
   }
-  console.log("Total characters", characterList.length);
-  totalCharacter.textContent = characterList.length;
-});
+  wordsCountEl.textContent = wordCount;
+}
+
+textAreaEl.addEventListener("input", textAnalyze);
